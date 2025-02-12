@@ -2,6 +2,78 @@ sources:
   - name: raw
     schema: gz_raw_data
     tables:
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: Adwords campaign data
+        columns:
+          - name: date_date
+            description: date of adwords
+          - name: paid_source
+            description: adwords paid
+          - name: campaign_key
+            description: key of adwords campaign
+          - name: campgn_name
+            description: name of adwords campaign
+          - name: ads_cost
+            description: cost of adwords 
+          - name: impression
+            description: impression in adwords
+          - name: click
+            description: click in adwords            
+      - name: bing
+        identifier: raw_gz_bing
+        description: Bing campaign data
+        columns:
+          - name: date_date
+            description: date of bing
+          - name: paid_source
+            description: bing paid
+          - name: campaign_key
+            description: key of bing campaign
+          - name: campgn_name
+            description: name of bing campaign
+          - name: ads_cost
+            description: cost of bing 
+          - name: impression
+            description: impression in bing
+          - name: click
+            description: click in bing         
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: Criteo campaign data
+        columns:
+          - name: date_date
+            description: date of criteo
+          - name: paid_source
+            description: criteo paid
+          - name: campaign_key
+            description: key of criteo campaign
+          - name: campgn_name
+            description: name of criteo campaign
+          - name: ads_cost
+            description: cost of criteo 
+          - name: impression
+            description: impression in criteo
+          - name: click
+            description: click in criteo 
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: Facebook campaign data
+        columns:
+          - name: date_date
+            description: date of facebook
+          - name: paid_source
+            description: facebook paid
+          - name: campaign_key
+            description: key of facebook campaign
+          - name: campgn_name
+            description: name of facebook campaign
+          - name: ads_cost
+            description: cost of facebook 
+          - name: impression
+            description: impression in facebook
+          - name: click
+            description: click in facebook
       - name: sales
         identifier: raw_gz_sales
         description: sales of Greenweez / we have on row per product_id found in each orders_id
@@ -94,7 +166,7 @@ models:
          description: orders key
          tests:
             - not_null
-       - name: products_id
+       - name: product_id
          description: products key
          tests:
             - not_null
@@ -120,7 +192,7 @@ models:
               - not_null
     tests:
       - unique:
-         column_name: "(orders_id || '-' || products_id)"
+         column_name: "(orders_id || '-' || product_id)"
   - name: int_orders_operational
     description: operational margin calculation per order
     columns:
